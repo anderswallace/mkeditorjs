@@ -2,6 +2,7 @@ import * as esbuild from "esbuild-wasm";
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
+import { fetchPlugin } from "./plugins/fetch-plugin";
 
 const el = document.getElementById("root");
 
@@ -32,14 +33,12 @@ const App = () => {
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
-      plugins: [unpkgPathPlugin()],
+      plugins: [unpkgPathPlugin(), fetchPlugin(input)],
       define: {
         "process.eng.NODE_ENV": '"prodcution"',
         global: "window",
       },
     });
-
-    //console.log(result);
 
     setCode(result.outputFiles[0].text);
   };
