@@ -33,6 +33,10 @@ const App = () => {
       bundle: true,
       write: false,
       plugins: [unpkgPathPlugin()],
+      define: {
+        "process.eng.NODE_ENV": '"prodcution"',
+        global: "window",
+      },
     });
 
     //console.log(result);
