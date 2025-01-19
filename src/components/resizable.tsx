@@ -13,6 +13,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const [width, setWidth] = useState(Math.floor(window.innerWidth * 0.75));
 
+  // listen for window resizing and adjust window size
   useEffect(() => {
     const listener = () => {
       let timer: any;
@@ -32,6 +33,8 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
     return () => {
       window.removeEventListener("resize", listener);
     };
+    // only want this useEffect to run once for event listener
+    // eslint-disable-next-line
   }, []);
 
   if (direction === "horizontal") {
