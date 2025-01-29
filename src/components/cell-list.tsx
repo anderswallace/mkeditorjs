@@ -4,13 +4,24 @@ import CellListItem from "./cell-list-item";
 import AddCell from "./add-cell";
 
 const CellList: React.FC = () => {
-  const cells = useTypedSelector(({ cells: { order, data } }) => {
-    return order.map((id) => {
-      return data[id];
-    });
+  // const cells = useTypedSelector(({ cells: { order, data } }) => {
+  //   return order.map((id) => {
+  //     return data[id];
+  //   });
+  // });
+  const cellsOrder = useTypedSelector(({ cells: { order } }) => {
+    return order;
   });
 
-  const renderedCells = cells.map((cell) => (
+  const cellsData = useTypedSelector(({ cells: { data } }) => {
+    return data;
+  });
+
+  const cells_ordered = cellsOrder.map((id) => {
+    return cellsData[id];
+  });
+
+  const renderedCells = cells_ordered.map((cell) => (
     <Fragment key={cell.id}>
       <CellListItem cell={cell} />
       <AddCell previousCellId={cell.id} />
@@ -19,7 +30,10 @@ const CellList: React.FC = () => {
 
   return (
     <div>
-      <AddCell forceVisible={cells.length === 0} previousCellId={null} />
+      <AddCell
+        forceVisible={cells_ordered.length === 0}
+        previousCellId={null}
+      />
       {renderedCells}
     </div>
   );

@@ -15,12 +15,47 @@ interface CodeCellProps {
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell, createBundle } = useActions();
+  const state_order = useTypedSelector((state) => state.cells.order);
+  const state_data = useTypedSelector((state) => state.cells.data);
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
+
+  // new function
+  const consecutiveCode = () => {
+    const orderedCells = state_order.map((id) => state_data[id]);
+
+    const consecutiveCode = [
+      `
+      const show = (value) => {
+        const root = document.querySelector('#root');
+        root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
+      }
+      `,
+    ];
+
+    for (let c of orderedCells) {
+      if (c.type === "code") {
+        consecutiveCode.push(c.content);
+      }
+      if (c.id === cell.id) {
+        break;
+      }
+    }
+
+    return consecutiveCode;
+  };
+
   const cumulativeCode = useTypedSelector((state) => {
     const { data, order } = state.cells;
     const orderedCells = order.map((id) => data[id]);
 
-    const cumulativeCode = [];
+    const cumulativeCode = [
+      `
+      const show = (value) => {
+        const root = document.querySelector('#root');
+        root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
+      }
+      `,
+    ];
     for (let c of orderedCells) {
       if (c.type === "code") {
         cumulativeCode.push(c.content);
