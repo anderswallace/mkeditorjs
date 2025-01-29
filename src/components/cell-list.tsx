@@ -4,11 +4,6 @@ import CellListItem from "./cell-list-item";
 import AddCell from "./add-cell";
 
 const CellList: React.FC = () => {
-  // const cells = useTypedSelector(({ cells: { order, data } }) => {
-  //   return order.map((id) => {
-  //     return data[id];
-  //   });
-  // });
   const cellsOrder = useTypedSelector(({ cells: { order } }) => {
     return order;
   });
