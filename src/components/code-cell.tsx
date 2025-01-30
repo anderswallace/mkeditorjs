@@ -38,7 +38,6 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
         break;
       }
     }
-
     return cumulativeCode;
   })();
 

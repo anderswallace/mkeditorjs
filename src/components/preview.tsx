@@ -41,12 +41,17 @@ const Preview: React.FC<PreviewProps> = ({ code, bundleError }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
-    iframe.current.srcdoc = html;
-
-    // delay posting message so eval function can get updated value
-    setTimeout(() => {
+    const handleLoad = () => {
       iframe.current.contentWindow.postMessage(code, "*");
-    }, 50);
+    };
+
+    const iframeElement = iframe.current;
+    iframeElement.onload = handleLoad;
+
+    // cleanup for onload listener
+    return () => {
+      iframeElement.onload = null;
+    };
   }, [code]);
 
   return (
