@@ -24,12 +24,10 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const orderedCells = stateOrder.map((id) => stateData[id]);
 
     const cumulativeCode = [
-      `
-      const show = (value) => {
-        const root = document.querySelector('#root');
-        root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
-      }
-      `,
+      `const show = (value) => {
+        const root = document.querySelector("#root");
+        root.innerHTML = value;
+      }`,
     ];
 
     for (let c of orderedCells) {
