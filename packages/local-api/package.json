@@ -1,6 +1,6 @@
 {
   "name": "@mkeditorjs/local-api",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,7 +24,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@mkeditorjs/local-client": "^1.1.0",
+    "@mkeditorjs/local-client": "^1.2.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "http-proxy-middleware": "^3.0.3"
