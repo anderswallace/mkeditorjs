@@ -7,7 +7,7 @@ MkEditorJS is an interactive coding and markdown environment. You can write Java
 Using MkEditorJS you can:
 
 - Click any text or code cell and edit it
-- The code is all joined into one file, so if you define a variable in one cell, you can use it in all subsequent cells
+- Use variables anywhere in your environment. The code is all joined into one file, so if you define a variable in one cell, you can use it in all subsequent cells
 - Use the built in `show` function to display any string, number, React component, or anything else. Simply pass the code you want to execute as an argument
 - Reorder or delete any cells
 - Save all code and documentation to a file on your local machine
