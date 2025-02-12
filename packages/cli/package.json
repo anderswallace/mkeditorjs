@@ -21,10 +21,10 @@
     "@mkeditorjs/local-client": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
-    "esbuild": "0.8.26",
-    "typescript": "^5.7.3",
     "@mkeditorjs/local-api": "^1.0.0",
-    "commander": "^11.0.0"
+    "@types/node": "^22.13.1",
+    "commander": "^11.0.0",
+    "esbuild": "0.8.26",
+    "typescript": "^5.7.3"
   }
 }
