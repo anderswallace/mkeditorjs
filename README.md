@@ -1,6 +1,6 @@
 ## About
 
-MkEditorJS is an interactive coding and markdown environment. You can write JavaScript and see it executed, as well as create comprehensive documentation using markdown.
+MkEditorJS is an interactive coding and markdown environment. You can write JavaScript code and see it executed, as well as create comprehensive documentation using markdown.
 
 ## Overview
 
