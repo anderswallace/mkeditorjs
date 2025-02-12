@@ -1,6 +1,6 @@
 {
   "name": "mkeditorjs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "scripts": {
     "start": "tsc --watch --preserveWatchOutput",
     "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\""
@@ -18,10 +18,10 @@
     "dist"
   ],
   "dependencies": {
-    "@mkeditorjs/local-client": "^1.0.0"
+    "@mkeditorjs/local-client": "^1.1.0"
   },
   "devDependencies": {
-    "@mkeditorjs/local-api": "^1.0.0",
+    "@mkeditorjs/local-api": "^1.1.0",
     "@types/node": "^22.13.1",
     "commander": "^11.0.0",
     "esbuild": "0.8.26",
