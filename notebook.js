@@ -1,0 +1,1 @@
+[{"content":"import { createRoot } from \"react-dom/client\"\n\nshow(123);","type":"code","id":"gts"}]
